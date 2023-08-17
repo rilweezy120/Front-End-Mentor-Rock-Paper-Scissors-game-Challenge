@@ -1,0 +1,411 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0%;
+  --background: linear-gradient(
+    to right,
+    hsl(214, 47%, 23%),
+    hsl(237, 49%, 15%)
+  );
+  --white: #fff;
+  --scoreText: hsl(229, 64%, 46%);
+
+  /* game-colors */
+  --cyan: linear-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+  --paper: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+  --rock: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+  --scissors: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(to right, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+  font-family: "Barlow Semi Condensed", sans-serif;
+  /* import font-family asap !!!*/
+}
+
+a {
+  text-decoration: none;
+  color: var(--scoreText);
+  /* use chest for gradiet bg */
+}
+
+.description,
+.rules {
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.description {
+  display: flex;
+  justify-content: space-between;
+  border: 0.5px solid #fff;
+  width: 35vw;
+  margin: 25px auto 20px;
+  border-radius: 8px;
+  height: 6.2em;
+  /* add box-shadow asap; */
+}
+
+.description-text__info,
+.description-score__info {
+  margin: 15px 15px;
+}
+
+.description-text__info {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 0.34rem;
+  font-size: 1.1rem;
+}
+
+.description-score__info {
+  background-color: #fff;
+  color: var(--scoreText);
+  border-radius: 4px;
+  width: 5em;
+  height: 4.6em;
+  text-align: center;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+}
+
+.score-texts {
+  font-size: 1.1rem;
+}
+
+.count {
+  color: var(--scoreText);
+  font-size: 2.5rem;
+  font-weight: bolder;
+  color: grey;
+}
+
+.game-background {
+  display: grid;
+  place-items: center;
+  align-items: center;
+  margin-top: 9.5rem;
+  margin-bottom: 2rem;
+}
+.game-shapes {
+  position: relative;
+}
+
+.circle > img {
+  margin-top: auto;
+}
+
+.paper-clock,
+.rock-clock,
+.scissors-clock {
+  width: 9.5rem;
+  height: 9.5rem;
+}
+
+.paper-clock {
+  background: linear-gradient(white, white) padding-box, var(--paper) border-box;
+  border: 15px solid transparent;
+  border-radius: 100%;
+  margin: 50px auto;
+  position: relative;
+  padding: 2rem;
+  background-color: rgb(255, 255, 255);
+  /* box-shadow: 0 0 0 4px #0000F2,
+    inset 0 8.5px 2px -2.5px hsl(220, 14%, 79%), inset 0 0 3px black,
+    0 15px 10px 3px rgba(0, 0, 0, 0.2); */
+  box-shadow: 0 5px 2px -0.1px #1313ea,
+    inset 0 8.5px 2px -2.5px hsl(220, 14%, 79%), inset 0 0 2px black,
+    0 0 3px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: -23.5rem;
+  left: -9rem;
+}
+
+.rock-clock {
+  background: linear-gradient(white, white) padding-box, var(--rock) border-box;
+  border: 15px solid transparent;
+  border-radius: 100%;
+  margin: 50px auto;
+  position: relative;
+  padding: 2rem;
+  background-color: rgb(255, 255, 255);
+  /* box-shadow: 0 0 0 4px #FF0000,
+    inset 0 8.5px 2px -2.5px hsl(220, 14%, 79%), inset 0 0 3px black,
+    0 15px 10px 3px rgba(0, 0, 0, 0.2); */
+  box-shadow: 0 5px 2px -0.1px #ae1313,
+    inset 0 8.5px 2px -2.5px hsl(220, 14%, 79%), inset 0 0 2px black,
+    0 0 3px rgba(0, 0, 0, 0.2);
+  top: -24rem;
+  left: 8.5rem;
+}
+
+.scissors-clock {
+  background: linear-gradient(white, white) padding-box,
+    var(--scissors) border-box;
+  /* border: 4px solid transparent; */
+  border: 15px solid transparent;
+  border-radius: 100%;
+  margin: 50px auto;
+  position: relative;
+  padding: 2rem;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 5px 2px -0.1px #a47e33,
+    inset 0 8.5px 2px -2.5px hsl(220, 14%, 79%), inset 0 0 2px black,
+    0 0 3px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: -12rem;
+  left: -0.5rem;
+}
+
+/* .scissors-clock2{
+  background: linear-gradient(white, white) padding-box, var(--scissors) border-box;
+    border: 4px solid transparent;
+    width: 9.5rem;
+    height: 9.5rem;
+    border: 15px solid transparent;
+    border-radius: 100%;
+    margin: 50px auto;
+    position: relative;
+    padding: 2rem;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 5px 2px -0.1px #a47e33,
+      inset 0 8.5px 2px -2.5px hsl(220, 14%, 79%), inset 0 0 2px black,
+      0 0 3px rgba(0, 0, 0, 0.2);
+  } */
+
+/* 
+Tested a style for box-shadow
+
+.clock2{
+  width: 10rem;
+  height: 10rem;
+  border: 10px solid red;
+  border-radius: 50%;
+  margin: 50px auto;
+  position: relative;
+  padding: 2rem;
+  background: linear-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+  box-shadow: 0 0.4px 0 4px red, inset 0 4px 0 0.2px hsl(217, 16%, 45%),
+    0 0 0 7px rgba(0, 0, 0, 0.1);
+}  */
+
+.rules {
+  padding: 10px 35px;
+  border: 1px solid var(--white);
+  border-radius: 10px;
+  text-decoration: none;
+  position: fixed;
+  bottom: 1rem;
+  right: 2rem;
+  background: var(--background);
+  color: var(--white);
+  cursor: pointer;
+}
+
+.rules:hover,
+.rules:active {
+  color: #ae1313;
+  border: 1px solid #a47e33;
+  outline-style: dashed;
+}
+
+.rules:focus {
+  /* border-style: dashed; */
+  outline-style: dashed;
+}
+
+.decision-modal {
+  display: none;
+  flex-direction: row;
+  /* flex-wrap: nowrap; */
+  justify-content: center;
+  /* text-align: center; */
+  gap: 0.5rem;
+  /* padding-left:; */
+}
+
+/* .decision-modal.visible {
+  display: flex;
+
+  wanted to use toggle functionality
+} */
+
+.decision-modal > div {
+  margin-top: 5rem;
+}
+
+.player-clock,
+.comp-clock {
+  background: linear-gradient(white, white) padding-box,
+    var(--scissors) border-box;
+  border: 4px solid transparent;
+  width: 9.5rem;
+  height: 9.5rem;
+  border: 15px solid transparent;
+  border-radius: 100%;
+  margin: 50px auto;
+  position: relative;
+  padding: 2rem;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 5px 2px -0.1px #a47e33,
+    inset 0 8.5px 2px -2.5px hsl(220, 14%, 79%), inset 0 0 2px black,
+    0 0 3px rgba(0, 0, 0, 0.2);
+  /* position: absolute; */
+  /* top: -12rem;
+  left: -0.5rem; */
+}
+
+.player {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+.player-text,
+.comp-text,
+.result-text,
+.result-btn > button {
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.result {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 30px;
+  text-align: center;
+  padding-top: 60px;
+  padding-left: 40px;
+}
+
+.result-btn > button {
+  padding: 0.8rem 2.5rem;
+  border-radius: 13px;
+  color: black;
+  opacity: 0.9;
+  background: #fff;
+  justify-self: center;
+  border: 1px solid #fff;
+}
+
+.result-btn > button:hover,
+.result-btn > button:focus {
+  color: red;
+}
+
+.result-btn > button:focus {
+  outline-style: dashed;
+  border: 0.5px solid red;
+}
+
+footer {
+  padding-bottom: 0.3rem;
+  /* margin-top: 4.5rem; */
+  display: flex;
+  justify-content: center;
+}
+
+.footer-text {
+  font-size: 2rem;
+  position: fixed;
+  bottom: 0.5rem;
+  left: auto;
+}
+
+@media screen and (max-width: 475px) {
+  .description {
+    width: 312px;
+  }
+
+  .description-text__info,
+  .score-texts {
+    font-size: 0.8rem;
+  }
+
+  .description-score__info {
+    height: 3.8rem;
+  }
+
+  .paper-clock,
+  .rock-clock,
+  .scissors-clock,
+  .paper-clock,
+  .comp-clock {
+    width: 6.2rem;
+    height: 6.2rem;
+    border: 10px solid transparent;
+    display: flex;
+    justify-content: center;
+  }
+
+  .game-background {
+    margin-top: 12rem;
+  }
+
+  .paper-clock {
+    left: -6.5rem;
+    top: -22.5rem;
+  }
+
+  .rock-clock {
+    left: 6.5rem;
+    top: -22.5rem;
+  }
+
+  .scissors-clock {
+    top: -9.5rem;
+  }
+
+  .rules {
+    padding: 7px 25px;
+    right: 1.5rem;
+    font-size: 0.8rem;
+    bottom: 2rem;
+  }
+
+  .footer-text {
+    font-size: 0.9rem;
+    bottom: 0.4rem;
+    /* position: relative; */
+  }
+
+  .decision-modal{
+    gap: 10px;
+    margin-top: 12rem;
+  }
+
+  .decision-modal > div {
+    /* margin: 2rem 1.5rem; */
+    margin-top: 0;
+  }
+
+  .player-text,
+  .comp-text,
+  .result-text,
+  .result-btn > button {
+    font-size: 0.5rem;
+  }
+
+  .result {
+    gap: 30px;
+    text-align: center;
+    /* padding-top: 60px; */
+    padding-left: 40px; 
+    margin-left: -2rem;
+  }
+
+  .result-btn > button {
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+  
+  }
+
+  footer{
+    padding-bottom: 0;
+  }
+}
