@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,400;1,500;1,600&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Frontend Mentor | Rock, Paper, Scissors</title>
+
+    <script src="app.js" defer></script>
+
+    <!-- <script src="codewars.js" defer></script> -->
+  </head>
+
+  <body>
+
+    <main>
+
+      <div class="container">
+        <div class="description">
+          <div class="description-text">
+            <div class="description-text__info">
+              <p>rock</p>
+              <p>paper</p>
+              <p>scissors</p>
+            </div>
+          </div>
+
+          <div class="description-scores">
+            <div class="description-score__info">
+              <p class="score-texts">score</p>
+              <p class="count">0</p>
+            </div>
+          </div>
+        </div>
+
+       <div class="game-background">
+        <img src="images\bg-triangle.svg" alt="">
+
+        <div class="game-shapes">
+          <div class="paper-clock clock" data-clock="paper-clock">
+            <img src="images\icon-paper.svg" alt="paper-icon" />
+          </div>
+  
+          <div class="rock-clock clock" data-clock="rock-clock">
+            <img src="images\icon-rock.svg" alt="rock-icon" />
+          </div>
+  
+          <div class="scissors-clock clock" data-clock="scissors-clock">
+            <img src="images\icon-scissors.svg" alt="scissors-icon" />
+          </div>
+
+          <!-- <div class="scissors-clock2">
+            <img src="images\icon-scissors.svg" alt="scissors-icon" />
+          </div> -->
+  
+         </div>
+       </div>
+
+       <div class="decision-modal">
+        <div class="player">
+          <div class="player-text">You picked</div>
+          <div id="player-clock" class="player-clock"></div>
+        </div>
+
+        <div class="result">
+          <div id="game-result" class="result-text">You win</div>
+          <div class="result-btn">
+            <button id="reset-btn">play again</button>
+          </div>
+        </div>
+
+        <div class="player">
+          <div class="comp-text">The house picked</div>
+          <div id="comp-clock" class="comp-clock"></div>
+        </div>
+        
+      </div>
+
+
+
+     </div>
+
+       
+<!-- 
+        <div class="clock2">
+          <img src="images\icon-rock.svg" alt="" />
+
+        
+        </div> -->
+
+        <a class ="rules" href="">Rules</a>
+
+        <footer>
+          <div class="footer-text">
+            Challenge by
+            <a
+              href="https://www.frontendmentor.io?ref=challenge"
+              target="_blank"
+              >Frontend Mentor</a
+            > Coded by <a class="profile" href="https://github.com/rilweey120">Umar Rilwan</a>.
+          </div>
+        </footer>
+      </div>
+    </main>
+  </body>
+</html>
